@@ -1,4 +1,4 @@
-function InitWorldMap(mapDomElem, dataSrc,regionSrc) {
+function InitWorldMap(mapDomElem, dataSrc, regionSrc) {
     $.ajax({
         type: 'GET',
         url: dataSrc,
@@ -13,7 +13,8 @@ function InitWorldMap(mapDomElem, dataSrc,regionSrc) {
         }
     });
 }
-function GetRegionData(mapDomElem,regionSrc,mapData){
+
+function GetRegionData(mapDomElem, regionSrc, mapData){
 	$.ajax({
         type: 'GET',
         url: regionSrc,
@@ -28,12 +29,15 @@ function GetRegionData(mapDomElem,regionSrc,mapData){
         }
     });
 }
-function InitRender(elem, data,regionData) {
+
+function InitRender(elem, data, regionData) {
     var tooltip = d3.select(".container")
         .append("div")
         .attr('class', 'tooltip')
         .style("visibility", "hidden");
+
     var sampleData = ConvertJSONToJQVMAPFormat(data);
+
     $('#vmap').vectorMap({
         map: 'world_en',
         width: '100%',
@@ -54,14 +58,15 @@ function InitRender(elem, data,regionData) {
                 var message = '<p>' + regionCustomName + ' (' + codeName + ')</p><p> ' + elementInfo+'</p>';
 				var leftPosition=d3.select('.jqvmap-label').style('left');
 				var topPosition=d3.select('.jqvmap-label').style('top');
-                tooltip
-                    .html(message)
+
+                tooltip.html(message)
                     .style("visibility", "visible")
 					.style("top",topPosition)
 					.style("left",leftPosition)
             }
         }
     });
+
     $("#vmap").mousewheel(function (ev, val) {
         if (val > 0) {
             $('.jqvmap-zoomin').trigger('click');
@@ -71,6 +76,7 @@ function InitRender(elem, data,regionData) {
         }
     });
 }
+
 function ConvertJSONToJQVMAPFormat(data) {
     try {
         var len = data.length;
@@ -79,6 +85,7 @@ function ConvertJSONToJQVMAPFormat(data) {
             if (data[i].country !== "None") {
                 var countryCode = data[i].country.toLowerCase();
                 strJSON += '"' + countryCode + '":"' + data[i].count_dtime + '"';
+
                 if (i !== len - 1) {
                     strJSON += ',';
                 }
