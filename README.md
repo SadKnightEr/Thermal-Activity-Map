@@ -1,10 +1,10 @@
 # Thermal-Activity-Map
-Pet-проект оставшийся после одного из технических заданий.
+It is a pet project based on one technical exercise. This solution can help to build a graphical view of thermal data.
 ___
-Формирует карту термической активности в каждой стране мира.
+The solution forms a map of thermal activity for every country.
 
-Коды стран задаются в файле [js/country_code.json](https://github.com/sadknighter/sadknighter.github.io/blob/master/js/country_code.json).
-Формат файла:
+Country codes set in the file [js/country_code.json](https://github.com/sadknighter/sadknighter.github.io/blob/master/js/country_code.json).
+Format of file:
 ```
 {
 	...
@@ -18,9 +18,9 @@ ___
 ```
 ___
 
-Значения термической активности задаются в файле [js/data.json](https://github.com/sadknighter/sadknighter.github.io/blob/master/js/data.json).
+The Values of thermal activity reads from a file [js/data.json](https://github.com/sadknighter/sadknighter.github.io/blob/master/js/data.json).
 
-Пример:
+Format of file:
 ```
 [
 	...
@@ -29,6 +29,6 @@ ___
 ]
 ```
 
-Величина count_dtime влияет на цветовую раскраску страны.
+The 'count_dtime' value influences the color of the current country.
 
 DEMO:  [sadknighter.github.io](https://sadknighter.github.io/)
